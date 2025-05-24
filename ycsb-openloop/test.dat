@@ -1,0 +1,145 @@
+{
+  "metric" : "OVERALL",
+  "measurement" : "RunTime(ms)",
+  "value" : 30010
+} {
+  "metric" : "OVERALL",
+  "measurement" : "Throughput(ops/sec)",
+  "value" : 9998.167277574143
+} {
+  "metric" : "TOTAL_GCS_G1_Young_Generation",
+  "measurement" : "Count",
+  "value" : 6
+} {
+  "metric" : "TOTAL_GC_TIME_G1_Young_Generation",
+  "measurement" : "Time(ms)",
+  "value" : 21
+} {
+  "metric" : "TOTAL_GC_TIME_%_G1_Young_Generation",
+  "measurement" : "Time(%)",
+  "value" : 0.06997667444185271
+} {
+  "metric" : "TOTAL_GCS_G1_Old_Generation",
+  "measurement" : "Count",
+  "value" : 0
+} {
+  "metric" : "TOTAL_GC_TIME_G1_Old_Generation",
+  "measurement" : "Time(ms)",
+  "value" : 0
+} {
+  "metric" : "TOTAL_GC_TIME_%_G1_Old_Generation",
+  "measurement" : "Time(%)",
+  "value" : 0.0
+} {
+  "metric" : "TOTAL_GCs",
+  "measurement" : "Count",
+  "value" : 6
+} {
+  "metric" : "TOTAL_GC_TIME",
+  "measurement" : "Time(ms)",
+  "value" : 21
+} {
+  "metric" : "TOTAL_GC_TIME_%",
+  "measurement" : "Time(%)",
+  "value" : 0.06997667444185271
+} {
+  "metric" : "CLEANUP",
+  "measurement" : "Operations",
+  "value" : 1
+} {
+  "metric" : "CLEANUP",
+  "measurement" : "AverageLatency(us)",
+  "value" : 6.0
+} {
+  "metric" : "CLEANUP",
+  "measurement" : "MinLatency(us)",
+  "value" : 6
+} {
+  "metric" : "CLEANUP",
+  "measurement" : "MaxLatency(us)",
+  "value" : 6
+} {
+  "metric" : "CLEANUP",
+  "measurement" : "95thPercentileLatency(us)",
+  "value" : 6
+} {
+  "metric" : "CLEANUP",
+  "measurement" : "99thPercentileLatency(us)",
+  "value" : 6
+} {
+  "metric" : "INSERT",
+  "measurement" : "Operations",
+  "value" : 300045
+} {
+  "metric" : "INSERT",
+  "measurement" : "AverageLatency(us)",
+  "value" : 0.013114699461747405
+} {
+  "metric" : "INSERT",
+  "measurement" : "MinLatency(us)",
+  "value" : 0
+} {
+  "metric" : "INSERT",
+  "measurement" : "MaxLatency(us)",
+  "value" : 2563
+} {
+  "metric" : "INSERT",
+  "measurement" : "95thPercentileLatency(us)",
+  "value" : 0
+} {
+  "metric" : "INSERT",
+  "measurement" : "99thPercentileLatency(us)",
+  "value" : 0
+} {
+  "metric" : "INSERT",
+  "measurement" : "Return=OK",
+  "value" : 300045
+} {
+  "metric" : "Intended-CLEANUP",
+  "measurement" : "Operations",
+  "value" : 1
+} {
+  "metric" : "Intended-CLEANUP",
+  "measurement" : "AverageLatency(us)",
+  "value" : 7.0
+} {
+  "metric" : "Intended-CLEANUP",
+  "measurement" : "MinLatency(us)",
+  "value" : 7
+} {
+  "metric" : "Intended-CLEANUP",
+  "measurement" : "MaxLatency(us)",
+  "value" : 7
+} {
+  "metric" : "Intended-CLEANUP",
+  "measurement" : "95thPercentileLatency(us)",
+  "value" : 7
+} {
+  "metric" : "Intended-CLEANUP",
+  "measurement" : "99thPercentileLatency(us)",
+  "value" : 7
+} {
+  "metric" : "Intended-INSERT",
+  "measurement" : "Operations",
+  "value" : 300045
+} {
+  "metric" : "Intended-INSERT",
+  "measurement" : "AverageLatency(us)",
+  "value" : 261.3606758986152
+} {
+  "metric" : "Intended-INSERT",
+  "measurement" : "MinLatency(us)",
+  "value" : 0
+} {
+  "metric" : "Intended-INSERT",
+  "measurement" : "MaxLatency(us)",
+  "value" : 60927
+} {
+  "metric" : "Intended-INSERT",
+  "measurement" : "95thPercentileLatency(us)",
+  "value" : 272
+} {
+  "metric" : "Intended-INSERT",
+  "measurement" : "99thPercentileLatency(us)",
+  "value" : 4683
+}
