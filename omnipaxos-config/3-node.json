@@ -1,0 +1,12 @@
+{
+  "threadpool_size": 64,
+  "commit_interval": 300,
+  "peers": [
+    "[machine1_ip]:10000",
+    "[machine2_ip]:11000",
+    "[machine3_ip]:12000"
+  ],
+  "store": "mem",
+  "db_path": "/tmp/testdb/",
+  "snapshot_interval": 500000000
+}
