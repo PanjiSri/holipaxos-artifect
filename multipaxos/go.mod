@@ -1,12 +1,12 @@
 module github.com/psu-csl/replicated-store/go
 
-go 1.19
+go 1.20
 
 require (
 	github.com/golang/protobuf v1.5.2
-	github.com/linxGnu/grocksdb v1.7.7
+	github.com/linxGnu/grocksdb v1.10.2
 	github.com/sirupsen/logrus v1.9.0
-	github.com/stretchr/testify v1.8.0
+	github.com/stretchr/testify v1.10.0
 	google.golang.org/grpc v1.47.0
 	google.golang.org/protobuf v1.28.1
 )
