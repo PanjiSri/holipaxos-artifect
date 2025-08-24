@@ -60,7 +60,7 @@ impl ReplicantInner {
         };
         let cluster_config = ClusterConfig {
             configuration_id: 1,
-            nodes: vec![1, 2, 3],
+            nodes: (1..=peers.len() as u64).collect(),
             ..Default::default()
         };
         let op_config = OmniPaxosConfig {
