@@ -2,7 +2,7 @@ Etcd's raft library with key-value store.
 
 ## Build
 ```
-go build -o bin/replicant main.go
+go build -o bin/replicant .
 ```
 
 ## Run

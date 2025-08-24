@@ -1,0 +1,15 @@
+{
+  "threadpool_size": 64,
+  "commit_interval": 300,
+  "peers": [
+    "0.0.0.0:10000",
+    "0.0.0.0:11000",
+    "0.0.0.0:12000",
+    "0.0.0.0:13000",
+    "0.0.0.0:14000"
+  ],
+  "store": "mem",
+  "db_path": "/tmp/testdb/",
+  "check_quorum": false,
+  "snapshot_interval": 500000000
+}

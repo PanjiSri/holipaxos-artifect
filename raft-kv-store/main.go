@@ -15,17 +15,29 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
+	"os"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
 	"go.etcd.io/etcd/raft/v3/raftpb"
 )
 
+type Config struct {
+	ThreadpoolSize   int      `json:"threadpool_size"`
+	CommitInterval   int      `json:"commit_interval"`
+	Peers            []string `json:"peers"`
+	Store            string   `json:"store"`
+	DBPath           string   `json:"db_path"`
+	CheckQuorum      bool     `json:"check_quorum"`
+	SnapshotInterval int      `json:"snapshot_interval"`
+}
+
 func main() {
-	cluster := flag.String("cluster", "http://172.31.2.227:10000,"+
-		"http://172.31.8.130:11000,http://172.31.1.13:12000",
+	cluster := flag.String("cluster", "",
 		"comma separated cluster peers")
+	configFile := flag.String("config", "", "path to config JSON file")
 	id := flag.Int("id", 1, "node ID")
 	kvport := flag.Int("port", 9121, "key-value server port")
 	join := flag.Bool("join", false, "join an existing cluster")
@@ -33,6 +45,35 @@ func main() {
 	snapshotCount := flag.Uint64("count", 10000, "snapshot count")
 	baseSnapPath := flag.String("s", "/tmp/", "snapshot path")
 	flag.Parse()
+
+	var clusterPeers []string
+	
+	if *configFile != "" {
+		configData, err := os.ReadFile(*configFile)
+		if err != nil {
+			log.Fatalf("Failed to read config file: %v", err)
+		}
+		
+		var config Config
+		if err := json.Unmarshal(configData, &config); err != nil {
+			log.Fatalf("Failed to parse config file: %v", err)
+		}
+		
+		for _, peer := range config.Peers {
+			if strings.HasPrefix(peer, "0.0.0.0:") {
+				peer = strings.Replace(peer, "0.0.0.0:", "127.0.0.1:", 1)
+			}
+			clusterPeers = append(clusterPeers, "http://"+peer)
+		}
+	} else if *cluster != "" {
+		clusterPeers = strings.Split(*cluster, ",")
+	} else {
+		clusterPeers = []string{
+			"http://127.0.0.1:10000",
+			"http://127.0.0.1:11000", 
+			"http://127.0.0.1:12000",
+		}
+	}
 
 	if *debug {
 		log.SetLevel(log.InfoLevel)
@@ -49,7 +90,7 @@ func main() {
 	var kvs *kvstore
 	getSnapshot := func() ([]byte, error) { return kvs.getSnapshot() }
 	commitC, errorC, snapshotterReady := newRaftNode(*id,
-		strings.Split(*cluster, ","), *join, getSnapshot, proposeC,
+		clusterPeers, *join, getSnapshot, proposeC,
 		confChangeC, *debug, *snapshotCount, *baseSnapPath)
 
 	kvs = newKVStore(<-snapshotterReady, proposeC, commitC, errorC)
